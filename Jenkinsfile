@@ -18,9 +18,9 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                bat 'kubectl apply -f k8s/'
-            }
-        }
+    steps {
+        bat 'docker-compose down'
+        bat 'docker-compose up --build -d'
     }
+}
 }
