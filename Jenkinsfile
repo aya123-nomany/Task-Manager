@@ -11,12 +11,6 @@ pipeline {
             }
         }
 
-        stage('Build Docker') {
-            steps {
-                bat 'docker build -t task-manager .'
-            }
-        }
-
         stage('Deploy') {
             steps {
                 bat 'docker-compose down'
