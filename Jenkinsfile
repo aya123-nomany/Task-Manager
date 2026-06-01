@@ -6,8 +6,8 @@ pipeline {
         stage('Clone') {
             steps {
                 git branch: 'main',
-    credentialsId: 'github-token',
-    url: 'https://github.com/aya123-nomany/Task-Manager.git'
+                    credentialsId: 'github-token',
+                    url: 'https://github.com/aya123-nomany/Task-Manager.git'
             }
         }
 
@@ -18,9 +18,10 @@ pipeline {
         }
 
         stage('Deploy') {
-    steps {
-        bat 'docker-compose down'
-        bat 'docker-compose up --build -d'
+            steps {
+                bat 'docker-compose down'
+                bat 'docker-compose up --build -d'
+            }
+        }
     }
-}
 }
