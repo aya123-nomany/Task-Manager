@@ -5,8 +5,9 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git credentialsId: 'github-token',
-                    url: 'https://github.com/aya123-nomany/Task-Manager.git'
+                git branch: 'main',
+    credentialsId: 'github-token',
+    url: 'https://github.com/aya123-nomany/Task-Manager.git'
             }
         }
 
