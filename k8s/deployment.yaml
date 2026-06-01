@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: task-manager
-          image: your-dockerhub-username/task-manager:latest
+          image: ayaennomany/backend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
