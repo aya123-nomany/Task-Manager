@@ -2,21 +2,23 @@ pipeline {
     agent any
 
     stages {
+
         stage('Clone') {
             steps {
-                git 'https://github.com/user/task-manager.git'
+                git credentialsId: 'github-token',
+                    url: 'https://github.com/aya123-nomany/Task-Manager.git'
             }
         }
 
         stage('Build Docker') {
             steps {
-                sh 'docker build -t task-manager .'
+                bat 'docker build -t task-manager .'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'kubectl apply -f k8s/'
+                bat 'kubectl apply -f k8s/'
             }
         }
     }
